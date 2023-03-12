@@ -38,6 +38,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
       body: Image.asset(
         "assets/bg.png",
+        width: double.infinity,
         fit: BoxFit.cover,
       ),
     );
