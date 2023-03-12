@@ -10,10 +10,24 @@ class OnboardContent extends StatefulWidget {
 }
 
 class _OnboardContentState extends State<OnboardContent> {
+  late PageController _pageController;
+  // double _progress;
+  @override
+  void initState() {
+    _pageController = PageController()
+      ..addListener(() {
+        setState(() {});
+      });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final double progress =
+        _pageController.hasClients ? (_pageController.page ?? 0) : 0;
+
     return SizedBox(
-      height: 400,
+      height: 400 + progress * 140,
       child: Stack(
         fit: StackFit.expand,
         children: [
@@ -22,6 +36,7 @@ class _OnboardContentState extends State<OnboardContent> {
               const SizedBox(height: 16),
               Expanded(
                 child: PageView(
+                  controller: _pageController,
                   children: const [
                     LandingContent(),
                     SignUpForm(),
@@ -32,7 +47,7 @@ class _OnboardContentState extends State<OnboardContent> {
           ),
           Positioned(
             height: 56,
-            bottom: 32,
+            bottom: 32 + progress * 140,
             right: 16,
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -57,10 +72,23 @@ class _OnboardContentState extends State<OnboardContent> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: 92,
+                      width: 92 + progress * 32,
                       child: Stack(
-                        children: const [
-                          Text("Get Started"),
+                        fit: StackFit.passthrough,
+                        children: [
+                          Opacity(
+                            opacity: 1 - progress,
+                            child: Text("Get Started"),
+                          ),
+                          Opacity(
+                            opacity: progress,
+                            child: Text(
+                              "Create account",
+                              maxLines: 1,
+                              overflow: TextOverflow.fade,
+                              softWrap: false,
+                            ),
+                          ),
                         ],
                       ),
                     ),
