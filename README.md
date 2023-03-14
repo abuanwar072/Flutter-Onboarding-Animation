@@ -1,16 +1,11 @@
-# onboard_animation
+# Flutter Onboarding Animation
 
-A new Flutter project.
+## [Watch it on YouTube](#)
 
-## Getting Started
+Welcome to my 100-Second Animation Series, where I will showcase how to create intricate animations on Flutter in just 100 seconds. Let's start with this seamless sliding animation.
 
-This project is a starting point for a Flutter application.
+Big thanks to Guillaume Bernos for sharing this awesome animation with us!
 
-A few resources to get you started if this is your first Flutter project:
+![Preview](/gif.gif)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![App UI](/ui.png)
