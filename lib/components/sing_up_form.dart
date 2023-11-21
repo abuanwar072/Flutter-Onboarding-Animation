@@ -18,20 +18,50 @@ class SignUpForm extends StatelessWidget {
                 fontSize: 26,
               ),
             ),
-            const SizedBox(
-              height: 32,
-            ),
-            const _TextField(label: 'Email address', icon: Icons.email),
             const SizedBox(height: 16),
-            const _TextField(
-              label: 'Password',
-              icon: Icons.lock,
-              hidden: true,
+            Form(
+              child: Column(
+                children: [
+                  TextFormField(
+                    keyboardType: TextInputType.emailAddress,
+                    textInputAction: TextInputAction.next,
+                    decoration: InputDecoration(
+                      hintText: "Email address",
+                      hintStyle: const TextStyle(
+                        fontWeight: FontWeight.normal,
+                        color: Colors.grey,
+                      ),
+                      suffixIcon: Icon(
+                        Icons.mail,
+                        color: Colors.grey.shade400,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 24),
+                  TextFormField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      hintText: "Password",
+                      hintStyle: const TextStyle(
+                        fontWeight: FontWeight.normal,
+                        color: Colors.grey,
+                      ),
+                      suffixIcon: Icon(
+                        Icons.lock,
+                        color: Colors.grey.shade400,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
+            // const SizedBox(height: 16),
             const SizedBox(height: 200),
-            Text(
-              "Already have an account? Sign in.",
-              style: TextStyle(fontSize: 16, color: Colors.blueGrey.shade300),
+            Center(
+              child: Text(
+                "Already have an account? Sign in.",
+                style: TextStyle(fontSize: 16, color: Colors.blueGrey.shade300),
+              ),
             )
           ],
         ),

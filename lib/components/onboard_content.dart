@@ -27,7 +27,7 @@ class _OnboardContentState extends State<OnboardContent> {
         _pageController.hasClients ? (_pageController.page ?? 0) : 0;
 
     return SizedBox(
-      height: 400 + progress * 140,
+      height: 400 + progress * 160,
       child: Stack(
         fit: StackFit.expand,
         children: [
@@ -47,7 +47,7 @@ class _OnboardContentState extends State<OnboardContent> {
           ),
           Positioned(
             height: 56,
-            bottom: 32 + progress * 140,
+            bottom: 48 + progress * 180,
             right: 16,
             child: GestureDetector(
               onTap: () {
@@ -84,12 +84,12 @@ class _OnboardContentState extends State<OnboardContent> {
                         child: Stack(
                           fit: StackFit.passthrough,
                           children: [
-                            Opacity(
-                              opacity: 1 - progress,
+                            FadeTransition(
+                              opacity: AlwaysStoppedAnimation(1 - progress),
                               child: const Text("Get Started"),
                             ),
-                            Opacity(
-                              opacity: progress,
+                            FadeTransition(
+                              opacity: AlwaysStoppedAnimation(progress),
                               child: const Text(
                                 "Create account",
                                 maxLines: 1,
